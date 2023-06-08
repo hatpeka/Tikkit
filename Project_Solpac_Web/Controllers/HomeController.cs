@@ -28,6 +28,11 @@ namespace Project_Solpac_Web.Controllers
             return View();
         }
 
+        public IActionResult Register()
+        {
+            return View();
+        }
+
         //Login
         public IActionResult Login()
         {
@@ -44,20 +49,16 @@ namespace Project_Solpac_Web.Controllers
             return RedirectToAction("Index");  
         }
 
-        //Register
-        public IActionResult Register()
-        {
-            return View();
-        }
         [HttpPost]
-        public IActionResult Register(string username, string password)
+        public IActionResult Register(User user)
         {
-            var User = _db.Users.FirstOrDefault(u => u.Name == username);
-            if (User != null && User.Name == username && User.Password == password)
+            if (ModelState.IsValid)
             {
-                return View();
+                _db.Users.Add(user);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+            return View("Register");
         }
 
 

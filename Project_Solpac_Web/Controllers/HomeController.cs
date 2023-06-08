@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Project_Solpac_Web.Data;
 using Project_Solpac_Web.Models;
+using System;
 using System.Diagnostics;
 using System.Reflection.Metadata;
 
@@ -7,12 +10,13 @@ namespace Project_Solpac_Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly SolpacClientDbContext _db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(SolpacClientDbContext db)
         {
-            _logger = logger;
+            _db = db;
         }
+
 
         public IActionResult Index()
         {
@@ -24,6 +28,7 @@ namespace Project_Solpac_Web.Controllers
             return View();
         }
 
+        //Login
         public IActionResult Login()
         {
             return View();
@@ -31,9 +36,28 @@ namespace Project_Solpac_Web.Controllers
         [HttpPost]
         public IActionResult Login(string username, string password)
         {
-            var db = new User();
-            
+            var User = _db.Users.FirstOrDefault(u=> u.Name == username);
+            if (User != null && User.Name == username && User.Password == password)
+            {
+                return View();
+            }
+            return RedirectToAction("Index");  
+        }
+
+        //Register
+        public IActionResult Register()
+        {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Register(string username, string password)
+        {
+            var User = _db.Users.FirstOrDefault(u => u.Name == username);
+            if (User != null && User.Name == username && User.Password == password)
+            {
+                return View();
+            }
+            return RedirectToAction("Index");
         }
 
 

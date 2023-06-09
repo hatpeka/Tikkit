@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Project_Solpac_Web.Data;
 
@@ -11,9 +12,11 @@ using Project_Solpac_Web.Data;
 namespace Project_Solpac_Web.Migrations
 {
     [DbContext(typeof(SolpacClientDbContext))]
-    partial class SolpacClientDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230609075555_AddRequestToDatabase")]
+    partial class AddRequestToDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

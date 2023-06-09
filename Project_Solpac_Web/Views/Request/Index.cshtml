@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Requests</h1>
+<br />
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Request N0
+            </th>
+            <th>
+                Request Date
+            </th>
+            <th>
+                Request Person
+            </th>
+            <th>
+                Partner
+            </th>
+            <th>
+                End User
+            </th>
+            <th>
+                Software Product
+            </th>
+            <th>
+                Program Name
+            </th>
+            <th>
+                Current Situation
+            </th>
+            <th>
+                Content of Request
+            </th>
+            <th>
+                Correct Situation
+            </th>
+            <th>
+                Contact
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+
+                <td width="10%">
+                    @obj.RequestNo
+                </td>
+
+                <td width="10%">
+                    @obj.RequestDate
+                </td>
+
+                <td width="10%">
+                    @obj.RequestPerson
+                </td>
+
+                <td width="10%">
+                    @obj.Partner
+                </td>
+
+                <td width="10%">
+                    @obj.EndUser
+                </td>
+
+                <td width="10%">
+                    @obj.SoftwareProduct
+                </td>
+
+                <td width="10%">
+                    @obj.ProgramName
+                </td>
+
+                <td width="10%">
+                    @obj.CurrentSituation
+                </td>
+
+                <td width="10%">
+                    @obj.ContentsOfRequest
+                </td>
+
+                <td width="10%">
+                    @obj.CorrectSituation
+                </td>
+
+                <td width="10%">
+                    @obj.Contact
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 

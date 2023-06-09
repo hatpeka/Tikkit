@@ -12,25 +12,26 @@ namespace Project_Test.Controllers
         {
             _db = db;
         }
+        public IActionResult Index()
+        {
+            IEnumerable<User> objUserList = _db.Users;
+            return View(objUserList);
+        }
 
-        // GET: /User/Register
-        public IActionResult Register()
+        //Get
+        public IActionResult Create()
         {
             return View();
         }
 
-        // POST: /User/Register
+        //Post
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public IActionResult Register(User user)
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(User obj)
         {
-            if (ModelState.IsValid)
-            {
-                _db.Users.Add(user);
-                _db.SaveChanges();
-                return RedirectToAction("Index", "Home");
-            }
-            return View(user);
+            _db.Users.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

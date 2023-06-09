@@ -8,5 +8,6 @@ namespace Project_Solpac_Web.Data
         public SolpacClientDbContext(DbContextOptions<SolpacClientDbContext> options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Request> Requests { get; set; }
     }
 }

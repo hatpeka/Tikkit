@@ -21,20 +21,15 @@ namespace Project_Test.Controllers
 
         // POST: /User/Register
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public IActionResult Register(User user)
         {
             if (ModelState.IsValid)
             {
-                // Lưu người dùng mới vào cơ sở dữ liệu
                 _db.Users.Add(user);
                 _db.SaveChanges();
-
-                // Chuyển hướng đến trang thành công hoặc trang đăng nhập
                 return RedirectToAction("Index", "Home");
             }
-
-            // Trả về view đăng ký nếu dữ liệu không hợp lệ
             return View(user);
         }
     }

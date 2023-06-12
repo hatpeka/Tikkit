@@ -17,5 +17,21 @@ namespace Project_Solpac_Web.Controllers
             IEnumerable<Request> objRequestList = _db.Requests;
             return View(objRequestList);
         }
+
+        //Get
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Request obj)
+        {
+            _db.Requests.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -1,0 +1,60 @@
+﻿@model Request
+
+<form method="post">
+    <div class="border p-3 m-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">
+                Create new Request
+            </h2>
+        </div>
+        <div class="mb-3">
+            <label asp-for="RequestPerson">Request Person</label>
+            <input asp-for="RequestPerson" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Partner">Partner</label>
+            <input asp-for="Partner" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="EndUser">End User</label>
+            <input asp-for="EndUser" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="SoftwareProduct">Software Product</label>
+            <input asp-for="SoftwareProduct" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ProgramName">Program Name</label>
+            <input asp-for="ProgramName" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CurrentSituation">Current Situation</label>
+            <input asp-for="CurrentSituation" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ContentsOfRequest">Contents of Request</label>
+            <input asp-for="ContentsOfRequest" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CorrectSituation">Correct Situation</label>
+            <input asp-for="CorrectSituation" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Contact">Contact</label>
+            <input asp-for="Contact" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+        <a asp-controller="Request" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Back to request list
+        </a>
+    </div>
+</form>

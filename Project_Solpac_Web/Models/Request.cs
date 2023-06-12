@@ -6,7 +6,7 @@ namespace Project_Solpac_Web.Models
     {
 
         [Key]
-        public string? RequestNo { get; set; }
+        public int RequestNo { get; set; }
         public DateTime RequestDate { get; set; } = DateTime.Now;
         public string? RequestPerson { get; set; }
         public string? Partner { get; set; }

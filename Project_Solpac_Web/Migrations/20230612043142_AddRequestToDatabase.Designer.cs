@@ -12,7 +12,7 @@ using Project_Solpac_Web.Data;
 namespace Project_Solpac_Web.Migrations
 {
     [DbContext(typeof(SolpacClientDbContext))]
-    [Migration("20230609075555_AddRequestToDatabase")]
+    [Migration("20230612043142_AddRequestToDatabase")]
     partial class AddRequestToDatabase
     {
         /// <inheritdoc />

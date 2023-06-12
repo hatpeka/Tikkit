@@ -15,7 +15,8 @@ namespace Project_Solpac_Web.Migrations
                 name: "Requests",
                 columns: table => new
                 {
-                    RequestNo = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    RequestNo = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     RequestDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     RequestPerson = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Partner = table.Column<string>(type: "nvarchar(max)", nullable: true),
